@@ -4,6 +4,7 @@
     import  com.jme3.app.SimpleApplication;
     import  com.jme3.renderer.RenderManager;
     import  de.christopherstock.jme.game1.ui.scene.*;
+    import  de.christopherstock.lib.io.LibIO;
 
     /***************************************************************************
     *   This is the application's main class. It contains the main method
@@ -12,13 +13,13 @@
     *   TODO ASAP   Pick the car example to own project
     *
     *   TODO LOW    Ajust app splashscreen.
-    *   TODO WEAK   Ajust app icon.
     *
     *   TODO ASAP   Follow the tutorial in order to check out materials, scene etc.
     *   TODO HIGH   Browse examples.
     *
     *   TODO INIT   Try assets and materials.
     *
+    *   DONE        Ajusted app icon.
     *   DONE        Tried the car example.
     *   DONE        Explore simple scene setup.
     *   DONE        Adjust version specifier for all classes.
@@ -50,6 +51,7 @@
 
             Main app = new Main();
 
+            LibIO.setIcons( app, MainDebug.error );
 
 
             app.start();
