@@ -42,9 +42,12 @@ public class PhysicsTestHelper {
         Material material = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         material.setTexture("ColorMap", assetManager.loadTexture("Interface/Logo/Monkey.jpg"));
 
+        Material material2 = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+        material2.setTexture("ColorMap", assetManager.loadTexture("Interface/Logo/Grass.jpg"));
+
         Box floorBox = new Box(140, 0.25f, 140);
         Geometry floorGeometry = new Geometry("Floor", floorBox);
-        floorGeometry.setMaterial(material);
+        floorGeometry.setMaterial(material2);
         floorGeometry.setLocalTranslation(0, -5, 0);
 //        Plane plane = new Plane();
 //        plane.setOriginNormal(new Vector3f(0, 0.25f, 0), Vector3f.UNIT_Y);
@@ -54,8 +57,8 @@ public class PhysicsTestHelper {
         space.add(floorGeometry);
 
         //movable boxes
-        for (int i = 0; i < 12; i++) {
-            Box box = new Box(0.25f, 0.25f, 0.25f);
+        for (int i = -40; i < 40; i++) {
+            Box box = new Box(0.5f, 0.5f, 0.5f);
             Geometry boxGeometry = new Geometry("Box", box);
             boxGeometry.setMaterial(material);
             boxGeometry.setLocalTranslation(i, 5, -3);
@@ -64,7 +67,8 @@ public class PhysicsTestHelper {
             rootNode.attachChild(boxGeometry);
             space.add(boxGeometry);
         }
-
+if ( false )
+{
         //immovable sphere with mesh collision shape
         Sphere sphere = new Sphere(8, 8, 1);
         Geometry sphereGeometry = new Geometry("Sphere", sphere);
@@ -73,7 +77,7 @@ public class PhysicsTestHelper {
         sphereGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(sphere), 0));
         rootNode.attachChild(sphereGeometry);
         space.add(sphereGeometry);
-
+}
     }
 
     public static void createPhysicsTestWorldSoccer(Node rootNode, AssetManager assetManager, PhysicsSpace space) {
