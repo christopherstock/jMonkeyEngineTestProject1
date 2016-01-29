@@ -13,16 +13,30 @@
     *   This is the application's main class. It contains the main method
     *   and the ToDo-list.
     *
-    *   TODO ASAP   Create and synchronize as GIT project.
-    *   TODO ASAP   Create alternate source folder (src_lib) for library sources!
-    *   TODO ASAP   Pick libraries for general purposes.
+    *   TODO ASAP   Explore different simple scene setup.
+    *
+    *   TODO ASAP   Browse examples.
+    *
+    *   TODO ASAP   Ajust app icon.
+    *   TODO ASAP   Ajust app splashscreen.
+    *
     *   TODO ASAP   Try the car example.
     *   TODO ASAP   Try assets and materials.
+    *   TODO ASAP   Follow the tutorial in order to check out materials, scene etc.
     *
-    *   @author  stock
-    *   @version 0.1
+    *   DONE        Adjust version specifier for all classes.
+    *   DONE        Unify author and version for all classes.
+    *   DONE        Created version system.
+    *   DONE        Created debug system.
+    *   DONE        Created settings system.
+    *   DONE        Created and synchronize GIT project.
+    *   DONE        Created alternate source folder (src_lib) for library sources.
+    *   DONE        Picked libraries for general purposes.
+    *
+    *   @author     Christopher Stock
+    *   @version    0.0.1
     ***************************************************************************/
-    public class BasicGame1 extends SimpleApplication
+    public class Main extends SimpleApplication
     {
         /***************************************************************************
         *   This is the application's entry point.
@@ -31,7 +45,13 @@
         ***************************************************************************/
         public static void main( String[] args )
         {
-            BasicGame1 app = new BasicGame1();
+            MainDebug.major.out
+            (
+                    "Welcome to [" + MainSettings.General.TITLE + "] "
+                +   "version [" + MainVersion.getCurrentVersionDesc() + "]"
+            );
+
+            Main app = new Main();
             app.start();
         }
 
@@ -41,14 +61,27 @@
         @Override
         public void simpleInitApp()
         {
-            Box      b    = new Box( 1, 1, 1 );
-            Geometry geom = new Geometry("Box", b);
+            Box      b1    = new Box( 1.0f, 1.0f, 1.0f );
+            Box      b2    = new Box( 1.0f, 1.0f, 1.0f );
 
-            Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-            mat.setColor("Color", ColorRGBA.Blue);
-            geom.setMaterial(mat);
 
-            rootNode.attachChild(geom);
+
+            Geometry geom1 = new Geometry( "Box1", b1 );
+            Geometry geom2 = new Geometry( "Box2", b2 );
+
+            geom1.setLocalTranslation( 0.0f, 0.0f, 0.0f );
+            geom2.setLocalTranslation( 2.0f, 2.0f, 2.0f );
+
+            Material mat1 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
+            mat1.setColor( "Color", ColorRGBA.Red );
+
+            Material mat2 = new Material( assetManager, "Common/MatDefs/Misc/Sky.j3md" );
+
+            geom1.setMaterial( mat1 );
+            geom2.setMaterial( mat2 );
+
+            rootNode.attachChild(geom1);
+            //rootNode.attachChild(geom2);
         }
 
         /***************************************************************************
