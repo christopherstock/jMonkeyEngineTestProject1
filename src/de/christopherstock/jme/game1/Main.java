@@ -3,6 +3,7 @@
 
     import  com.jme3.app.SimpleApplication;
     import  com.jme3.renderer.RenderManager;
+    import  com.jme3.system.AppSettings;
     import  de.christopherstock.jme.game1.ui.scene.*;
     import  de.christopherstock.lib.io.LibIO;
 
@@ -11,14 +12,12 @@
     *   and the ToDo-list.
     *
     *   TODO ASAP   Pick the car example to own project
-    *
-    *   TODO LOW    Ajust app splashscreen.
-    *
     *   TODO ASAP   Follow the tutorial in order to check out materials, scene etc.
-    *   TODO HIGH   Browse examples.
-    *
     *   TODO INIT   Try assets and materials.
+    *   TODO WEAK   Browse more examples!
     *
+    *   DONE        Browsed examples.
+    *   DONE        Ajusted app splashscreen.
     *   DONE        Ajusted app icon.
     *   DONE        Tried the car example.
     *   DONE        Explore simple scene setup.
@@ -49,11 +48,17 @@
                 +   "version [" + MainVersion.getCurrentVersionDesc() + "]"
             );
 
-            Main app = new Main();
+            //create app and settings
+            Main        app         = new Main();
+            AppSettings appSettings = new AppSettings( true );
 
-            LibIO.setIcons( app, MainDebug.error );
+            //modify settings
+            appSettings.setTitle( MainSettings.General.TITLE );
+            LibIO.setIcons(      appSettings, MainDebug.error );
+            LibIO.setTitleImage( appSettings, MainDebug.error );
 
-
+            //assign settings and start
+            app.setSettings( appSettings );
             app.start();
         }
 
