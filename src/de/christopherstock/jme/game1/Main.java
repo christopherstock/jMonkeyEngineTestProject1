@@ -68,7 +68,14 @@
         @Override
         public void simpleInitApp()
         {
+/*
             Scene2.add( this );
+             if ( true ) return;
+*/
+
+
+
+
         }
 
         /***************************************************************************
