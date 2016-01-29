@@ -1,13 +1,9 @@
 
     package de.christopherstock.jme.game1;
 
-    import com.jme3.app.SimpleApplication;
-    import com.jme3.material.Material;
-    import com.jme3.math.ColorRGBA;
-    import com.jme3.renderer.RenderManager;
-    import com.jme3.scene.Geometry;
-    import com.jme3.scene.shape.Box;
-    import com.jme3.system.AppSettings;
+    import  com.jme3.app.SimpleApplication;
+    import  com.jme3.renderer.RenderManager;
+    import  de.christopherstock.jme.game1.ui.scene.*;
 
     /***************************************************************************
     *   This is the application's main class. It contains the main method
@@ -52,7 +48,7 @@
 
             Main app = new Main();
 
-            //app.get
+
 
             app.start();
         }
@@ -63,34 +59,7 @@
         @Override
         public void simpleInitApp()
         {
-            Box      b1    = new Box( 1.0f, 1.0f, 1.0f );
-            Box      b2    = new Box( 1.0f, 1.0f, 1.0f );
-            Box      b3    = new Box( 1.0f, 1.0f, 1.0f );
-
-            Geometry geom1 = new Geometry( "Box1", b1 );
-            Geometry geom2 = new Geometry( "Box2", b2 );
-            Geometry geom3 = new Geometry( "Box3", b3 );
-
-            geom1.setLocalTranslation( -3.0f, 0.0f, 0.0f );
-            geom2.setLocalTranslation( 0.0f,  0.0f, 0.0f );
-            geom3.setLocalTranslation( 3.0f,  0.0f, 0.0f );
-
-            Material mat1 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
-            mat1.setColor( "Color", ColorRGBA.Red );
-
-            Material mat2 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
-            mat2.setColor( "Color", ColorRGBA.Green );
-
-            Material mat3 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
-            mat3.setColor( "Color", ColorRGBA.Blue );
-
-            geom1.setMaterial( mat1 );
-            geom2.setMaterial( mat2 );
-            geom3.setMaterial( mat3 );
-
-            rootNode.attachChild(geom1);
-            rootNode.attachChild(geom2);
-            rootNode.attachChild(geom3);
+            Scene2.add( this );
         }
 
         /***************************************************************************
