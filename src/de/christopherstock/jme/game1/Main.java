@@ -9,15 +9,17 @@
     *   This is the application's main class. It contains the main method
     *   and the ToDo-list.
     *
-    *   TODO ASAP   Follow the tutorial in order to check out materials, scene etc.
-    *   TODO HIGH   Browse examples.
-    *
-    *   TODO INIT   Try the car example.
-    *   TODO INIT   Try assets and materials.
+    *   TODO ASAP   Pick the car example to own project
     *
     *   TODO LOW    Ajust app splashscreen.
     *   TODO WEAK   Ajust app icon.
     *
+    *   TODO ASAP   Follow the tutorial in order to check out materials, scene etc.
+    *   TODO HIGH   Browse examples.
+    *
+    *   TODO INIT   Try assets and materials.
+    *
+    *   DONE        Tried the car example.
     *   DONE        Explore simple scene setup.
     *   DONE        Adjust version specifier for all classes.
     *   DONE        Unify author and version for all classes.
