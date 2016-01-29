@@ -4,26 +4,25 @@
     import com.jme3.app.SimpleApplication;
     import com.jme3.material.Material;
     import com.jme3.math.ColorRGBA;
-    import com.jme3.math.Vector3f;
     import com.jme3.renderer.RenderManager;
     import com.jme3.scene.Geometry;
     import com.jme3.scene.shape.Box;
+    import com.jme3.system.AppSettings;
 
     /***************************************************************************
     *   This is the application's main class. It contains the main method
     *   and the ToDo-list.
     *
-    *   TODO ASAP   Explore different simple scene setup.
-    *
-    *   TODO ASAP   Browse examples.
-    *
-    *   TODO ASAP   Ajust app icon.
-    *   TODO ASAP   Ajust app splashscreen.
-    *
-    *   TODO ASAP   Try the car example.
-    *   TODO ASAP   Try assets and materials.
     *   TODO ASAP   Follow the tutorial in order to check out materials, scene etc.
+    *   TODO HIGH   Browse examples.
     *
+    *   TODO INIT   Try the car example.
+    *   TODO INIT   Try assets and materials.
+    *
+    *   TODO LOW    Ajust app splashscreen.
+    *   TODO WEAK   Ajust app icon.
+    *
+    *   DONE        Explore simple scene setup.
     *   DONE        Adjust version specifier for all classes.
     *   DONE        Unify author and version for all classes.
     *   DONE        Created version system.
@@ -52,6 +51,9 @@
             );
 
             Main app = new Main();
+
+            //app.get
+
             app.start();
         }
 
@@ -63,25 +65,32 @@
         {
             Box      b1    = new Box( 1.0f, 1.0f, 1.0f );
             Box      b2    = new Box( 1.0f, 1.0f, 1.0f );
-
-
+            Box      b3    = new Box( 1.0f, 1.0f, 1.0f );
 
             Geometry geom1 = new Geometry( "Box1", b1 );
             Geometry geom2 = new Geometry( "Box2", b2 );
+            Geometry geom3 = new Geometry( "Box3", b3 );
 
-            geom1.setLocalTranslation( 0.0f, 0.0f, 0.0f );
-            geom2.setLocalTranslation( 2.0f, 2.0f, 2.0f );
+            geom1.setLocalTranslation( -3.0f, 0.0f, 0.0f );
+            geom2.setLocalTranslation( 0.0f,  0.0f, 0.0f );
+            geom3.setLocalTranslation( 3.0f,  0.0f, 0.0f );
 
             Material mat1 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
             mat1.setColor( "Color", ColorRGBA.Red );
 
-            Material mat2 = new Material( assetManager, "Common/MatDefs/Misc/Sky.j3md" );
+            Material mat2 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
+            mat2.setColor( "Color", ColorRGBA.Green );
+
+            Material mat3 = new Material( assetManager, "Common/MatDefs/Misc/Unshaded.j3md" );
+            mat3.setColor( "Color", ColorRGBA.Blue );
 
             geom1.setMaterial( mat1 );
             geom2.setMaterial( mat2 );
+            geom3.setMaterial( mat3 );
 
             rootNode.attachChild(geom1);
-            //rootNode.attachChild(geom2);
+            rootNode.attachChild(geom2);
+            rootNode.attachChild(geom3);
         }
 
         /***************************************************************************
