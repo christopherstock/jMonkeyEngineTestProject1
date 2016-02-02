@@ -26,18 +26,20 @@ import com.jme3.texture.Texture;
  *
  * @author normenhansen
  */
-public class PhysicsTestHelper {
-
+public class PhysicsTestHelper
+{
     /**
      * creates a simple physics test world with a floor, an obstacle and some test boxes
+     *
      * @param rootNode
      * @param assetManager
      * @param space
      */
-    public static void createPhysicsTestWorld(Node rootNode, AssetManager assetManager, PhysicsSpace space) {
+    public static void createPhysicsTestWorld( Node rootNode, AssetManager assetManager, PhysicsSpace space )
+    {
         AmbientLight light = new AmbientLight();
-        light.setColor(ColorRGBA.LightGray);
-        rootNode.addLight(light);
+        light.setColor( ColorRGBA.LightGray );
+        rootNode.addLight( light );
 
         Material material = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         material.setTexture("ColorMap", assetManager.loadTexture("Interface/Logo/Monkey.jpg"));
@@ -45,13 +47,15 @@ public class PhysicsTestHelper {
         Material material2 = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         material2.setTexture("ColorMap", assetManager.loadTexture("Interface/Logo/Grass.jpg"));
 
-        Box floorBox = new Box(140, 0.25f, 140);
-        Geometry floorGeometry = new Geometry("Floor", floorBox);
-        floorGeometry.setMaterial(material2);
-        floorGeometry.setLocalTranslation(0, -5, 0);
+        Box floorBox = new Box( 140, 0.25f, 140 );
+        Geometry floorGeometry = new Geometry( "Floor", floorBox );
+        floorGeometry.setMaterial( material2 );
+        floorGeometry.setLocalTranslation( 0, -5, 0 );
+
 //        Plane plane = new Plane();
 //        plane.setOriginNormal(new Vector3f(0, 0.25f, 0), Vector3f.UNIT_Y);
 //        floorGeometry.addControl(new RigidBodyControl(new PlaneCollisionShape(plane), 0));
+
         floorGeometry.addControl(new RigidBodyControl(0));
         rootNode.attachChild(floorGeometry);
         space.add(floorGeometry);
@@ -80,7 +84,8 @@ if ( false )
 }
     }
 
-    public static void createPhysicsTestWorldSoccer(Node rootNode, AssetManager assetManager, PhysicsSpace space) {
+    public static void createPhysicsTestWorldSoccer( Node rootNode, AssetManager assetManager, PhysicsSpace space )
+    {
         AmbientLight light = new AmbientLight();
         light.setColor(ColorRGBA.LightGray);
         rootNode.addLight(light);
@@ -100,7 +105,8 @@ if ( false )
         space.add(floorGeometry);
 
         //movable spheres
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++)
+        {
             Sphere sphere = new Sphere(16, 16, .5f);
             Geometry ballGeometry = new Geometry("Soccer ball", sphere);
             ballGeometry.setMaterial(material);
@@ -111,25 +117,27 @@ if ( false )
             rootNode.attachChild(ballGeometry);
             space.add(ballGeometry);
         }
+
         {
-        //immovable Box with mesh collision shape
-        Box box = new Box(1, 1, 1);
-        Geometry boxGeometry = new Geometry("Box", box);
-        boxGeometry.setMaterial(material);
-        boxGeometry.setLocalTranslation(4, 1, 2);
-        boxGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(box), 0));
-        rootNode.attachChild(boxGeometry);
-        space.add(boxGeometry);
+            //immovable Box with mesh collision shape
+            Box box = new Box(1, 1, 1);
+            Geometry boxGeometry = new Geometry("Box", box);
+            boxGeometry.setMaterial(material);
+            boxGeometry.setLocalTranslation(4, 1, 2);
+            boxGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(box), 0));
+            rootNode.attachChild(boxGeometry);
+            space.add(boxGeometry);
         }
+
         {
-        //immovable Box with mesh collision shape
-        Box box = new Box(1, 1, 1);
-        Geometry boxGeometry = new Geometry("Box", box);
-        boxGeometry.setMaterial(material);
-        boxGeometry.setLocalTranslation(4, 3, 4);
-        boxGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(box), 0));
-        rootNode.attachChild(boxGeometry);
-        space.add(boxGeometry);
+            //immovable Box with mesh collision shape
+            Box box = new Box(1, 1, 1);
+            Geometry boxGeometry = new Geometry("Box", box);
+            boxGeometry.setMaterial(material);
+            boxGeometry.setLocalTranslation(4, 3, 4);
+            boxGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(box), 0));
+            rootNode.attachChild(boxGeometry);
+            space.add(boxGeometry);
         }
     }
 
@@ -138,7 +146,8 @@ if ( false )
      * @param assetManager
      * @return
      */
-    public static Geometry createPhysicsTestBox(AssetManager assetManager) {
+    public static Geometry createPhysicsTestBox(AssetManager assetManager)
+    {
         Material material = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         material.setTexture("ColorMap", assetManager.loadTexture("Interface/Logo/Monkey.jpg"));
         Box box = new Box(0.25f, 0.25f, 0.25f);
@@ -154,7 +163,8 @@ if ( false )
      * @param assetManager
      * @return
      */
-    public static Geometry createPhysicsTestSphere(AssetManager assetManager) {
+    public static Geometry createPhysicsTestSphere(AssetManager assetManager)
+    {
         Material material = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         material.setTexture("ColorMap", assetManager.loadTexture("Interface/Logo/Monkey.jpg"));
         Sphere sphere = new Sphere(8, 8, 0.25f);
@@ -172,7 +182,8 @@ if ( false )
      * @param mass
      * @return
      */
-    public static Node createPhysicsTestNode(AssetManager manager, CollisionShape shape, float mass) {
+    public static Node createPhysicsTestNode(AssetManager manager, CollisionShape shape, float mass)
+    {
         Node node = new Node("PhysicsNode");
         RigidBodyControl control = new RigidBodyControl(shape, mass);
         node.addControl(control);
@@ -185,7 +196,8 @@ if ( false )
      * @param rootNode
      * @param space
      */
-    public static void createBallShooter(final Application app, final Node rootNode, final PhysicsSpace space) {
+    public static void createBallShooter(final Application app, final Node rootNode, final PhysicsSpace space)
+    {
         ActionListener actionListener = new ActionListener() {
 
             public void onAction(String name, boolean keyPressed, float tpf) {
